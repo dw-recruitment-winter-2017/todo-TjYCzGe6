@@ -4,11 +4,28 @@
 
 ;; home
 
+
+(defn render-todo [{:keys [id text done]}]
+  [:div
+   [:input {:type "checkbox"
+            :checked done}]
+   [:label text]])
+
 (defn home-panel []
-  (let [name (re-frame/subscribe [:name])]
-    (fn []
-      [:div (str "Hello from " @name ". This is the Home Page.")
-       [:div [:a {:href "#/about"} "go to About Page"]]])))
+  (let [todos (re-frame/subscribe [:todos])]
+    [:div
+        [:div "Click here to"
+        [:a {:href "#/about"} "go to About Page"]]     
+       [:div "Or, type in text and press enter to create a Todo."]
+       [:input {:type "text"
+                :id "todoInput"
+                :on-key-down #(case (.-which %)
+                                13 (re-frame/dispatch [:add-todo (-> % .-target .-value)])
+                                nil)}]
+      (if (> (count @todos) 0)
+        (for [todo (vals @todos)]
+          (render-todo todo)))
+       ]))
 
 
 ;; about
@@ -33,4 +50,5 @@
 (defn main-panel []
   (let [active-panel (re-frame/subscribe [:active-panel])]
     (fn []
+      [:h2 "TODO MVC APP"]
       [show-panel @active-panel])))
