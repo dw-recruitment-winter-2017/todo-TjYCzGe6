@@ -39,23 +39,22 @@
      [:div "This project consists of a reaganet and re-frame front end
 that talks to the back end via cljs-ajax.  It makes requests just using the query string 
 parsing abilities of Ring."]
-
      [:div "I don't necessarily feel that this is the optimal way to go, but I spent about 
 2 of my 4 hours trying to get Liberator to work.  I could do a GET, but I didn't figure 
 out how to get the params of my JSON PUT request to come through.  My best guesses right now
 are that they were were either encoded as a Bytestream on the body of the request, or they 
 just weren't getting passed in from the front end at all.
 
- Anyways, I wanted to keep to the time limits you guys assigned and just reached a point where it was just time to move on.
-If I had this to do over again, I would probably try composure-api :)"]
-     [:div "I tried to show a little of my knowledge of re-frame in the time remaining by
-using both reg-event-fx and reg-event-db."]
+ Anyways, I wanted to respect the time limits you guys assigned and just reached a point where it was just time to move on.
+If I had this to do over again, I might try composure-api :)"]
+     [:div "A cool thing about the app is that for having only a couple of events, I sure did get to work in both reg-event-fx and reg-events-db."]
+     [:div "Finally, I will note that I decided to use an in-memory DB because it would be easier to get up and running -- no need to configure anything on your end.  Plus I thought the exercise was more focused on Clojure than SQL or PSQL, so I used my time elsewhere."]
      [:div "My next TODOS would be to:"
       [:ul
        [:li "Obviously finish out the features in the project description"]
        [:li "Make it work with JSON instead of query strings"]
        [:li "Even though it's not really needed for these simple todos, implement some validations with core.spec, or Schema"]
-       [:li "I like stewart sierra's Component architecture.  If i had a bunch of time, I would re-structure the app to follow his patterns."]
+       [:li "I like Stewart Sierra's Component architecture.  If I had a bunch of time, I would re-structure the app to follow his patterns."]
        [:li "Styling"]]
       ]
      [:div "As you may be able to tell from this About section, this was my first time making
