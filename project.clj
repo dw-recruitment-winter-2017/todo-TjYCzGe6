@@ -6,7 +6,11 @@
                  [secretary "1.2.3"]
                  [compojure "1.5.0"]
                  [yogthos/config "0.8"]
-                 [ring "1.4.0"]]
+                 [ring "1.4.0"]
+                 [liberator "0.14.1"]
+                 [org.clojure/data.json "0.2.6"]
+                 [cljs-ajax "0.5.8"]
+                 [cheshire "5.7.0"]]
 
   :plugins [[lein-cljsbuild "1.1.4"]]
 
